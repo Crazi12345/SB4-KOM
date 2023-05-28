@@ -4,6 +4,7 @@ import dk.sdu.mmmi.cbse.bulletsystem.BulletPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
@@ -20,6 +21,7 @@ import static java.lang.Math.sqrt;
  */
 public class PlayerControlSystem implements IEntityProcessingService {
 
+    private boolean cooldown = false;
     @Override
     public void process(GameData gameData, World world) {
 
@@ -30,15 +32,25 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setLeft(gameData.getKeys().isDown(LEFT));
             movingPart.setRight(gameData.getKeys().isDown(RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(UP));
-           if (gameData.getKeys().isDown(SPACE)){
-               IGamePluginService bullet = new BulletPlugin();
-               bullet.start(null,null);
-           }
-            
+
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
 
             updateShape(player);
+           if (gameData.getKeys().isDown(SPACE) ){
+               if (cooldown){
+                   continue;
+               }
+                BulletPlugin bp = new BulletPlugin(player);
+                bp.start(gameData,world);
+
+              cooldown = true;
+           }
+           else {cooldown = false;}
+
+
+            
+
         }
     }
 

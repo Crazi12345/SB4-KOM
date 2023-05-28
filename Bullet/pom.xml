@@ -8,7 +8,6 @@
     </parent>
 
     <artifactId>Bullet</artifactId>
-    <packaging>maven-plugin</packaging>
 
     <build>
         <plugins>
@@ -24,6 +23,12 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>Common</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx</artifactId>
+            <version>1.11.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

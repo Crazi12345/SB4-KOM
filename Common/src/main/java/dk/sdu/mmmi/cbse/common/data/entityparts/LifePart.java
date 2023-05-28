@@ -55,4 +55,8 @@ public class LifePart implements EntityPart {
     public void process(GameData gameData, Entity entity) {
         
     }
+
+    public boolean isDead() {
+        return false;
+    }
 }

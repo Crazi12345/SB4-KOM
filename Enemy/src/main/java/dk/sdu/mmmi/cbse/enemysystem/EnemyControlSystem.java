@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.enemysystem;
 
+import dk.sdu.mmmi.cbse.bulletsystem.BulletPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -20,7 +21,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
             Random rand = new Random();
-            int number = rand.nextInt(4);
+            int number = rand.nextInt(10);
             movingPart.setUp(false);
             movingPart.setRight(false);
             movingPart.setLeft(false);
@@ -35,11 +36,12 @@ public class EnemyControlSystem implements IEntityProcessingService {
                     movingPart.setUp(true);
                     break;
                 case 3:
-                    //No Op for more randomness
+                    BulletPlugin bp = new BulletPlugin(enemy);
+                    bp.start(gameData,world);
                     break;
                 default:
-                    System.out.println("Should not be possible");
-                    throw new IndexOutOfBoundsException();
+                    break;
+
             }
 
             movingPart.process(gameData, enemy);
