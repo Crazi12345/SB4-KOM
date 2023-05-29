@@ -1,16 +1,16 @@
 package dk.sdu.mmmi.cbse.enemysystem;
 
-import dk.sdu.mmmi.cbse.bulletsystem.BulletPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.util.SPILocator;
+import org.example.BulletSPI;
+import org.example.Enemy;
 
 import java.util.Random;
-
-import static dk.sdu.mmmi.cbse.common.data.GameKeys.*;
 
 public class EnemyControlSystem implements IEntityProcessingService {
 
@@ -36,8 +36,9 @@ public class EnemyControlSystem implements IEntityProcessingService {
                     movingPart.setUp(true);
                     break;
                 case 3:
-                    BulletPlugin bp = new BulletPlugin(enemy);
-                    bp.start(gameData,world);
+                    for (BulletSPI bullet : SPILocator.locateAll(BulletSPI.class)) {
+                        world.addEntity(bullet.createBullet(enemy, gameData));
+                    }
                     break;
                 default:
                     break;

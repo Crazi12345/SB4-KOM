@@ -10,10 +10,7 @@
     </parent>
 
     <groupId>org.example</groupId>
-    <artifactId>Asteroid</artifactId>
-    <packaging>jar</packaging>
-    <name>Asteroid</name>
-
+    <artifactId>CommonAsteroid</artifactId>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -24,18 +21,6 @@
         <dependency>
             <groupId>dk.sdu.mmmi.cbse</groupId>
             <artifactId>Common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-box2d</artifactId>
-            <version>1.11.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>CommonAsteroid</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

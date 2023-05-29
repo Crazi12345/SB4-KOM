@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.bulletsystem;
 
+import com.badlogic.gdx.math.MathUtils;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -7,11 +8,13 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import org.example.Bullet;
+import org.example.BulletSPI;
 
-public class BulletControlSystem implements IEntityProcessingService {
+public class BulletControlSystem implements IEntityProcessingService, BulletSPI {
     @Override
     public void process(GameData gameData, World world) {
-        for(Entity bullet : world.getEntities(Bullet.class)){
+        for (Entity bullet : world.getEntities(Bullet.class)) {
             PositionPart bulletPos = bullet.getPart(PositionPart.class);
             MovingPart bulletMov = bullet.getPart(MovingPart.class);
             LifePart bulletLife = bullet.getPart(LifePart.class);
@@ -19,9 +22,9 @@ public class BulletControlSystem implements IEntityProcessingService {
             bulletMov.setMaxSpeed(200);
             bulletLife.reduceExpiration(gameData.getDelta());
             bulletMov.setUp(true);
-            bulletMov.process(gameData,bullet);
-            bulletLife.process(gameData,bullet);
-            bulletPos.process(gameData,bullet);
+            bulletMov.process(gameData, bullet);
+            bulletLife.process(gameData, bullet);
+            bulletPos.process(gameData, bullet);
             UpdateShape(bullet);
 
             if (bulletLife.getExpiration() <= 0 || bulletLife.isDead()) {
@@ -31,13 +34,13 @@ public class BulletControlSystem implements IEntityProcessingService {
     }
 
 
-    public void UpdateShape(Entity bullet){
+    public void UpdateShape(Entity bullet) {
         float[] shapex = bullet.getShapeX();
         float[] shapey = bullet.getShapeY();
         PositionPart p = bullet.getPart(PositionPart.class);
         float x = p.getX();
         float y = p.getY();
-        float scaleFactor = 2.0f; // Modify this value to scale the rectangle
+        float scaleFactor = 2.0f;
         float rectangleWidth = 1 * scaleFactor;
         float rectangleHeight = 2 * scaleFactor;
         float radians = p.getRadians();
@@ -58,6 +61,20 @@ public class BulletControlSystem implements IEntityProcessingService {
     }
 
 
-
-
+    @Override
+    public Entity createBullet(Entity shooter, GameData gameData) {
+        Entity bullet = new Bullet();
+        bullet.setRadius(0.8f);
+        PositionPart shooterPos = shooter.getPart(PositionPart.class);
+        float offset = shooter.getRadius() + 1 + bullet.getRadius() + 1;
+        float bulletX = shooterPos.getX() + MathUtils.cos(shooterPos.getRadians()) * offset;
+        float bulletY = shooterPos.getY() + MathUtils.sin(shooterPos.getRadians()) * offset;
+        PositionPart bulletPos = new PositionPart(bulletX, bulletY, shooterPos.getRadians());
+        MovingPart bulletMov = new MovingPart(5f, 2000f, 3000f, 50f);
+        LifePart bulletLife = new LifePart(1, 1);
+        bullet.add(bulletPos);
+        bullet.add(bulletLife);
+        bullet.add(bulletMov);
+        return bullet;
+    }
 }

@@ -1,19 +1,15 @@
 package dk.sdu.mmmi.cbse.playersystem;
 
-import dk.sdu.mmmi.cbse.bulletsystem.BulletPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.common.util.SPILocator;
+import org.example.BulletSPI;
 
 import static dk.sdu.mmmi.cbse.common.data.GameKeys.*;
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
 
 /**
  *
@@ -41,10 +37,11 @@ public class PlayerControlSystem implements IEntityProcessingService {
                if (cooldown){
                    continue;
                }
-                BulletPlugin bp = new BulletPlugin(player);
-                bp.start(gameData,world);
+               for (BulletSPI bullet : SPILocator.locateAll(BulletSPI.class)) {
+                   world.addEntity(bullet.createBullet(player, gameData));
+               }
 
-              cooldown = true;
+               cooldown = true;
            }
            else {cooldown = false;}
 
