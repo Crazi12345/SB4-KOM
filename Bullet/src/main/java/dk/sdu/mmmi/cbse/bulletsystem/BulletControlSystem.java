@@ -1,6 +1,6 @@
 package dk.sdu.mmmi.cbse.bulletsystem;
 
-import com.badlogic.gdx.math.MathUtils;
+
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -8,8 +8,8 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import org.example.Bullet;
-import org.example.BulletSPI;
+import org.example.bullets.Bullet;
+import org.example.bullets.BulletSPI;
 
 public class BulletControlSystem implements IEntityProcessingService, BulletSPI {
     @Override
@@ -67,8 +67,8 @@ public class BulletControlSystem implements IEntityProcessingService, BulletSPI 
         bullet.setRadius(0.8f);
         PositionPart shooterPos = shooter.getPart(PositionPart.class);
         float offset = shooter.getRadius() + 1 + bullet.getRadius() + 1;
-        float bulletX = shooterPos.getX() + MathUtils.cos(shooterPos.getRadians()) * offset;
-        float bulletY = shooterPos.getY() + MathUtils.sin(shooterPos.getRadians()) * offset;
+        float bulletX = shooterPos.getX() + (float)Math.cos(shooterPos.getRadians()) * offset;
+        float bulletY = shooterPos.getY() + (float) Math.sin(shooterPos.getRadians()) * offset;
         PositionPart bulletPos = new PositionPart(bulletX, bulletY, shooterPos.getRadians());
         MovingPart bulletMov = new MovingPart(5f, 2000f, 3000f, 50f);
         LifePart bulletLife = new LifePart(1, 1);

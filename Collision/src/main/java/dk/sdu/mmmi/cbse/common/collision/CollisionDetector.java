@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.playersystem.Player;
+import org.example.bullets.Bullet;
 
 public class CollisionDetector implements IPostEntityProcessingService {
 
@@ -19,6 +20,15 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 LifePart entityLife = entity.getPart(LifePart.class);
                 PositionPart positionPart = entity.getPart(PositionPart.class);
                 // if the two entities are identical, skip the iteration
+                if (entity.getID().equals(collisionDetection.getID())) {
+                    continue;
+                }
+
+                //Player cannot shoot itself
+                if (entity instanceof Player && collisionDetection instanceof Bullet ||
+                        entity instanceof Bullet && collisionDetection instanceof Player) {
+                    continue;
+                }
                 if (entity.getID().equals(collisionDetection.getID())) {
                     continue;
 
@@ -42,15 +52,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
     }
 
     public Boolean collides(Entity entity, Entity entity2) {
-        if (entity == null || entity2 == null)
-        {
-            return  false;
-        }
-        boolean b = entity2.toString().contains("playersystem");
-        if (b) {
-            return false;
-
-        }
+        System.out.println("HJERHSEJKRHKSR");
         PositionPart entMov = entity.getPart(PositionPart.class);
         PositionPart entMov2 = entity2.getPart(PositionPart.class);
         float dx = (float) entMov.getX() - (float) entMov2.getX();

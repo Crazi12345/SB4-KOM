@@ -11,13 +11,11 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.util.SPILocator;
+import dk.sdu.mmmi.cbse.common.util.SPILocator.SPILocator;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
-import org.example.Bullet;
 
-import java.util.ArrayList;
+
 import java.util.Collection;
-import java.util.List;
 
 public class Game
         implements ApplicationListener {
@@ -39,28 +37,10 @@ public class Game
         cam.update();
 
         sr = new ShapeRenderer();
-        Bullet b = new Bullet();
+
         Gdx.input.setInputProcessor(
                 new GameInputProcessor(gameData)
         );
-/*
-     IGamePluginService playerPlugin = new PlayerPlugin();
-        IGamePluginService enemyPlugin = new EnemyPlugin();
-        IGamePluginService asteroidPlugin = new AsteroidPlugin();
-        IEntityProcessingService enemyProcess = new EnemyControlSystem();
-        IEntityProcessingService playerProcess = new PlayerControlSystem();
-        IEntityProcessingService bulletProcess = new BulletControlSystem();
-        IEntityProcessingService asteroidProcess = new AsteroidControlSystem();
-        IPostEntityProcessingService collision = new CollisionDetector();
-        entityProcessors.add(asteroidProcess);
-        postEntityPlugins.add(collision);
-        entityPlugins.add(asteroidPlugin);
-        entityProcessors.add(bulletProcess);
-        entityPlugins.add(playerPlugin);
-        entityProcessors.add(playerProcess);
-        entityPlugins.add(enemyPlugin);
-        entityProcessors.add(enemyProcess);*/
-
 
         // Lookup all Game Plugins using ServiceLoader
         for (IGamePluginService iGamePlugin : getPluginServices()) {

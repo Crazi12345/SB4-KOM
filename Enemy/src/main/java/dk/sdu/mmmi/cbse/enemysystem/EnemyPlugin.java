@@ -7,7 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
-import org.example.Enemy;
+import org.example.enemies.Enemy;
 
 public class EnemyPlugin  implements IGamePluginService {
 
