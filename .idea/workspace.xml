@@ -5,44 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="157487c4-2f68-42e0-964c-10c74b75ce28" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Asteroid/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bullet/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Collision/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonAsteroid/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonBullet/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CommonEnemy/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Enemy/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Player/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/src/main/java/dk/sdu/mmmi/cbse/main/ModuleConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asteroid/src/main/java/org/example/AsteroidControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Asteroid/src/main/java/org/example/asteroids/AsteroidControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asteroid/src/main/java/org/example/AsteroidPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Asteroid/src/main/java/org/example/asteroids/AsteroidPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asteroid/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IEntityProcessingService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Asteroid/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IGamePluginService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bullet/src/main/java/dk/sdu/mmmi/cbse/bulletsystem/BulletControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bullet/src/main/java/dk/sdu/mmmi/cbse/bulletsystem/BulletControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bullet/src/main/java/dk/sdu/mmmi/cbse/bulletsystem/BulletPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bullet/src/main/java/dk/sdu/mmmi/cbse/bulletsystem/BulletPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bullet/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IEntityProcessingService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bullet/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IGamePluginService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bullet/src/main/resources/META-INF/services/org.example.BulletSPI" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collision/src/main/java/dk/sdu/mmmi/cbse/common/collision/CollisionDetector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Collision/src/main/java/dk/sdu/mmmi/cbse/common/collision/CollisionDetector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collision/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dk/sdu/mmmi/cbse/common/util/SPILocator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonBullet/src/main/java/org/example/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonBullet/src/main/java/org/example/bullets/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonBullet/src/main/java/org/example/BulletSPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonBullet/src/main/java/org/example/bullets/BulletSPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonEnemy/src/main/java/org/example/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommonEnemy/src/main/java/org/example/enemies/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dk/sdu/mmmi/cbse/common/util/SPILocator/SPILocator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/src/main/java/dk/sdu/mmmi/cbse/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Core/src/main/java/dk/sdu/mmmi/cbse/main/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/src/main/java/dk/sdu/mmmi/cbse/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Core/src/main/java/dk/sdu/mmmi/cbse/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/Core/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Enemy/src/main/java/dk/sdu/mmmi/cbse/enemysystem/EnemyControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy/src/main/java/dk/sdu/mmmi/cbse/enemysystem/EnemyControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy/src/main/java/dk/sdu/mmmi/cbse/enemysystem/EnemyPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy/src/main/java/dk/sdu/mmmi/cbse/enemysystem/EnemyPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player/src/main/java/dk/sdu/mmmi/cbse/playersystem/PlayerControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player/src/main/java/dk/sdu/mmmi/cbse/playersystem/PlayerControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IEntityProcessingService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player/src/main/resources/META-INF/services/dk.sdu.mmmi.cbse.common.services.IGamePluginService" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="module-info" />
         <option value="package-info" />
+        <option value="module-info" />
         <option value="Class" />
       </list>
     </option>
@@ -63,6 +34,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="master" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,9 +67,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "Spring",
     "jdk.selected.JAVA_MODULE": "16",
-    "last_opened_file_path": "/home/tired_atlas/School/4.Sem/COMP/portfolio/Asteroids/SB4-KOM/Collision/src/main/resources/META-INF/services",
+    "last_opened_file_path": "/home/tired_atlas/School/4.Sem/COMP/portfolio/Asteroids/SB4-KOM/mods-mvn",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,6 +88,7 @@
       <recent name="org.example" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mods-mvn" />
       <recent name="$PROJECT_DIR$/Collision/src/main/resources/META-INF/services" />
       <recent name="$PROJECT_DIR$/Bullet/src/main/resources/META-INF/services" />
       <recent name="$PROJECT_DIR$/Player/src/main/resources/META-INF/services" />
@@ -206,7 +179,7 @@
       <workItem from="1685360127794" duration="1128000" />
       <workItem from="1685365020011" duration="6555000" />
       <workItem from="1685389658971" duration="4623000" />
-      <workItem from="1685428388287" duration="5589000" />
+      <workItem from="1685428388287" duration="10856000" />
     </task>
     <servers />
   </component>

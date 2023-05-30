@@ -11,11 +11,11 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.util.SPILocator.SPILocator;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
 
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game
         implements ApplicationListener {
@@ -23,9 +23,18 @@ public class Game
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
 
+    private List<IEntityProcessingService> entityProcessingServices = new ArrayList<>();
+    private List<IGamePluginService> gamePluginServices = new ArrayList<>();
+    private List<IPostEntityProcessingService> postEntityProcessingServices = new ArrayList<>();
     private final GameData gameData = new GameData();
     private World world = new World();
 
+
+    public Game(List<IGamePluginService> gamePluginServices, List<IEntityProcessingService> entityProcessingServices, List<IPostEntityProcessingService> postEntityProcessingServices) {
+        this.gamePluginServices = gamePluginServices;
+        this.entityProcessingServices = entityProcessingServices;
+        this.postEntityProcessingServices = postEntityProcessingServices;
+    }
     @Override
     public void create() {
 
@@ -43,7 +52,7 @@ public class Game
         );
 
         // Lookup all Game Plugins using ServiceLoader
-        for (IGamePluginService iGamePlugin : getPluginServices()) {
+        for (IGamePluginService iGamePlugin : gamePluginServices) {
             iGamePlugin.start(gameData, world);
         }
     }
@@ -62,10 +71,10 @@ public class Game
 
     private void update() {
         // Update
-        for (IEntityProcessingService entityProcessorService : getEntityProcessingServices()) {
+        for (IEntityProcessingService entityProcessorService : entityProcessingServices) {
             entityProcessorService.process(gameData, world);
         }
-        for(IPostEntityProcessingService postEntityProcessingService: getPostEntityProcessingServices()){
+        for(IPostEntityProcessingService postEntityProcessingService: postEntityProcessingServices){
             postEntityProcessingService.process(gameData,world);
         }
     }
@@ -107,16 +116,6 @@ public class Game
     public void dispose() {
     }
 
-    private Collection<? extends IGamePluginService> getPluginServices() {
-        return SPILocator.locateAll(IGamePluginService.class);
-    }
 
-    private Collection<? extends IEntityProcessingService> getEntityProcessingServices() {
-        return SPILocator.locateAll(IEntityProcessingService.class);
-    }
-
-    private Collection<? extends IPostEntityProcessingService> getPostEntityProcessingServices() {
-        return SPILocator.locateAll(IPostEntityProcessingService.class);
-    }
 
 }

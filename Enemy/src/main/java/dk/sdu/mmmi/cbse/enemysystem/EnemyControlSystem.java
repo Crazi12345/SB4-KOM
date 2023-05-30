@@ -6,8 +6,6 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.util.SPILocator.SPILocator;
-import org.example.bullets.BulletSPI;
 import org.example.enemies.Enemy;
 
 import java.util.Random;
@@ -35,12 +33,9 @@ public class EnemyControlSystem implements IEntityProcessingService {
                 case 2:
                     movingPart.setUp(true);
                     break;
-                case 11:
-                    for (BulletSPI bullet : SPILocator.locateAll(BulletSPI.class)) {
-                        world.addEntity(bullet.createBullet(enemy, gameData));
-                    }
-                    break;
+
                 default:
+
                     break;
 
             }

@@ -8,7 +8,6 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
-import dk.sdu.mmmi.cbse.common.util.SPILocator.SPILocator;
 import org.example.bullets.BulletSPI;
 
 import java.util.Collection;
