@@ -13,6 +13,7 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.util.SPILocator.SPILocator;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
+import org.example.enemies.Enemy;
 
 
 import java.util.Collection;
@@ -53,6 +54,7 @@ public class Game
 
         // clear screen to black
         Gdx.gl.glClearColor(0, 0, 0, 1);
+
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         update();
@@ -72,9 +74,13 @@ public class Game
 
     private void draw() {
         for (Entity entity : world.getEntities()) {
+            if(entity instanceof Enemy) {
+                sr.setColor(1, 0, 0, 1);
 
-            sr.setColor(1, 1, 1, 1);
-
+            }
+            else {
+                sr.setColor(1, 1, 1, 1);
+            }
             sr.begin(ShapeRenderer.ShapeType.Line);
 
             float[] shapex = entity.getShapeX();

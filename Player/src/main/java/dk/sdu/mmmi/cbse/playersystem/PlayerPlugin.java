@@ -23,7 +23,7 @@ public class PlayerPlugin implements IGamePluginService {
         world.addEntity(player);
     }
 
-    private Entity createPlayerShip(GameData gameData) {
+    public Entity createPlayerShip(GameData gameData) {
 
         float deacceleration = 10;
         float acceleration = 200;

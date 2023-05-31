@@ -38,6 +38,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
 
+
             updateShape(player);
            if (gameData.getKeys().isDown(SPACE) ){
                if (cooldown){

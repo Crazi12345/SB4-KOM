@@ -52,7 +52,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
     }
 
     public Boolean collides(Entity entity, Entity entity2) {
-        System.out.println("HJERHSEJKRHKSR");
+
         PositionPart entMov = entity.getPart(PositionPart.class);
         PositionPart entMov2 = entity2.getPart(PositionPart.class);
         float dx = (float) entMov.getX() - (float) entMov2.getX();
