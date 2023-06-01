@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <spring.version>6.0.8</spring.version>
+
     </properties>
 
 
@@ -78,7 +78,7 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                shadedlibgdx,spring-core,spring-context,spring-beans,spring-aop,spring-expression,commons-logging
+                                shadedlibgdx
                             </includeArtifactIds>
                             <outputDirectory>../mods-mvn</outputDirectory>
                         </configuration>
